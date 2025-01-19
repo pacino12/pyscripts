@@ -26,11 +26,22 @@ print("############################################")
 for user in userlist:
     exitcode = os.system("id {}".format(user))
     if exitcode != 0:
-        print("User does not exist. Adding it." .fomat(user))
+        print("User does not exist. Adding it.".format(user))
         print("############################################")
         print()
         os.system("useradd {} ".format(user))
     else:
         print("User already exist , skipping it.")
         print("##################################")
+        print()
+    exitcode = os.system("grep science etc/group")
+    # Condition to check whether a group exist or not . If it doesnt add it
+    if exitcode != 0:
+        print("Group science does not exist . Adding it.")
+        print("###################################")
+        print()
+        os.system("groupadd science ")
+    else:
+        print("Group already exist . Just skippiong it")
+        print("######################################")
         print()
