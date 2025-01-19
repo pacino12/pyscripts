@@ -45,3 +45,8 @@ for user in userlist:
         print("Group already exist . Just skippiong it")
         print("######################################")
         print()
+    for user in userlist:
+        print("Adding User {} in the science group".format(user))
+        print("###################################")
+        print()
+        os.system("usermod -G science {}".format(user))
